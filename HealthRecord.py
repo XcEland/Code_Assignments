@@ -1,4 +1,14 @@
+"""
+Registration Number:R213273B
+Name:    Courtney Ganyiwa
+Program: DAH
+Module : Health Records
+njabulobass@gmail.com
+"""
+
+
 import datetime
+
 
 class HealthRecord:
     def __init__(self, record_id, name, date_of_birth, gender, condition, blood_pressure, heart_rate, respiratory_rate, temperature, record_date, prescription, bills):
@@ -16,6 +26,9 @@ class HealthRecord:
         self.bills = bills
 
     def display(self):
+        """
+        Displays the details of the health record.
+        """
         print("Record ID:", self.record_id)
         print("Name:", self.name)
         print("Date of Birth:", self.date_of_birth)
@@ -30,6 +43,14 @@ class HealthRecord:
         print("Bills:", self.bills)
 
     def update(self, field, value):
+        """
+        Updates the specified field with the given value.
+
+        Args:
+            field (str): The field to update.
+            value: The new value for the field.
+        """
+        
         if field == "name":
             self.name = value
         elif field == "date_of_birth":
@@ -56,10 +77,22 @@ class HealthRecord:
             print("Invalid field!")
 
     def delete(self):
+        """
+        Deletes the health record.
+        """
         del self
 
 
 def create_record(records):
+    """
+    Creates a new health record and adds it to the list of records.
+
+    Args:
+        records (list): The list of existing health records.
+
+    Returns:
+        HealthRecord: The newly created health record.
+    """
     record_id = len(records) + 1
     name = input("Enter name: ")
     date_of_birth = input("Enter date of birth (YYYY-MM-DD): ")
@@ -78,6 +111,12 @@ def create_record(records):
 
 
 def read_record(records):
+    """
+    Reads and displays the details of a specific health record.
+
+    Args:
+        records (list): The list of existing health records.
+    """
     record_id = int(input("Enter record ID: "))
     found = False
     for record in records:
@@ -90,6 +129,12 @@ def read_record(records):
 
 
 def update_record(records):
+    """
+    Updatesthe details of a specific health record.
+
+    Args:
+        records (list): The list of existing health records.
+    """
     record_id = int(input("Enter record ID: "))
     found = False
     for record in records:
@@ -105,6 +150,12 @@ def update_record(records):
 
 
 def delete_record(records):
+    """
+    Deletes a specific health record.
+
+    Args:
+        records (list): The list of existing health records.
+    """
     record_id = int(input("Enter record ID: "))
     found = False
     for record in records:
@@ -119,6 +170,9 @@ def delete_record(records):
 
 
 def main():
+    """
+    The main function that controls the flow of the program.
+    """
     records = []
 
     while True:
